@@ -8,6 +8,7 @@ import androidx.navigationevent.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import android.os.Bundle
 import com.example.entrevistasppc.ui.CaseListScreen
 import com.example.entrevistasppc.ui.CaseDetailScreen
 import com.example.entrevistasppc.ui.CaseFormScreen
@@ -20,13 +21,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             EntrevistasppcTheme {
-                Surface(color = MaterialTheme.colorScheme.background) {
-                    EntrevistasApp()
-                }
+                EntrevistasApp()
             }
         }
     }
 }
+
 
 @Composable
 fun EntrevistasApp() {

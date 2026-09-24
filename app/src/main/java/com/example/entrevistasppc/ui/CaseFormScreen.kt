@@ -3,6 +3,8 @@ package com.example.entrevistasppc.ui
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.entrevistasppc.model.Case
@@ -28,10 +30,10 @@ fun CaseFormScreen(navController: NavController, caseId: Int?, viewModel: CaseVi
     }
 
     Column(modifier = Modifier.padding(16.dp)) {
-        OutlinedTextField(value = title, onValueChange = { title = it }, label = { Text("Título") })
-        OutlinedTextField(value = description, onValueChange = { description = it }, label = { Text("Descripción") })
-        OutlinedTextField(value = date, onValueChange = { date = it }, label = { Text("Fecha") })
-        OutlinedTextField(value = status, onValueChange = { status = it }, label = { Text("Estado") })
+        OutlinedTextField(value = title, onValueChange = { title = it }, label = { Text("Título") }, modifier = Modifier.fillMaxWidth())
+        OutlinedTextField(value = description, onValueChange = { description = it }, label = { Text("Descripción") }, modifier = Modifier.fillMaxWidth())
+        OutlinedTextField(value = date, onValueChange = { date = it }, label = { Text("Fecha") }, modifier = Modifier.fillMaxWidth())
+        OutlinedTextField(value = status, onValueChange = { status = it }, label = { Text("Estado") }, modifier = Modifier.fillMaxWidth())
 
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = {
