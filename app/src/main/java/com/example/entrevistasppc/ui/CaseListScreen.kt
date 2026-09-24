@@ -10,7 +10,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.entrevistasppc.viewmodel.CaseViewModel
 
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
+
+
 @Composable
+@OptIn(ExperimentalMaterial3Api::class)
 fun CaseListScreen(navController: NavController, viewModel: CaseViewModel = viewModel()) {
     val cases by viewModel.cases.collectAsState(initial = emptyList())
     var searchQuery by remember { mutableStateOf("") }

@@ -37,30 +37,48 @@ android {
 
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
+
+    // Compose core
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation("androidx.navigation:navigation-compose:2.7.0")
-    implementation("androidx.compose.ui:ui:1.6.0")
+    implementation(libs.androidx.compose.material3)
+
+    // Foundation + runtime
     implementation("androidx.compose.foundation:foundation:1.6.0")
-    implementation("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.compose.runtime:runtime-livedata:1.6.0")
+
+    // Necesario para Modifier y dp
     implementation("androidx.compose.ui:ui-unit:1.6.0")
+
+    // Navigation Compose
     implementation("androidx.navigation:navigation-compose:2.7.0")
-    implementation("androidx.room:room-runtime:2.6.1")
+
+    // Room
     implementation("androidx.room:room-compiler:2.6.1")
+
+    implementation("androidx.room:room-runtime:2.6.1") {
     implementation("androidx.room:room-ktx:2.6.1")
+    }
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+    // Core
+    implementation(libs.androidx.core.ktx)
+
+    // Tests
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+}
+
+// Forzar versión correcta de anotaciones para evitar duplicados
+configurations.all {
+    exclude(group = "com.intellij", module = "annotations")
 }
